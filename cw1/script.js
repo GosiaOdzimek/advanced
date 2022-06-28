@@ -22,4 +22,24 @@ function changeHTMLInfo( slideNr ){
     imageDOM.src = "img/"+image
 }
 
-changeHTMLInfo(0)
+changeHTMLInfo(1)
+
+let currSlide = 1;
+function changeSlide( direction ){
+if( direction == "left"){
+    currSlide--
+}else{
+    currSlide++
+}
+
+if(currSlide < 0){
+    currSlide = 2 
+}
+changeHTMLInfo(currSlide)
+}
+changeSlide(currSlide)
+const leftArr = document.querySelector(".leftArr")
+leftArr.onclick = function(){
+    changeSlide( "left")
+}
+const rightArr = document.querySelector(".rightArr")
