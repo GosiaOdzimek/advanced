@@ -21,10 +21,15 @@ function changeHTMLInfo( slideNr ){
     const imageDOM = document.querySelector("img")
     imageDOM.src = "img/"+image
 }
-
 changeHTMLInfo(1)
 
 let currSlide = 1;
+changeHTMLInfo(currSlide)
+
+const leftArr = document.querySelector(".leftArr")
+leftArr.onclick = function(){
+    changeSlide( "left")
+}
 function changeSlide( direction ){
 if( direction == "left"){
     currSlide--
@@ -38,8 +43,22 @@ if(currSlide < 0){
 changeHTMLInfo(currSlide)
 }
 changeSlide(currSlide)
-const leftArr = document.querySelector(".leftArr")
-leftArr.onclick = function(){
-    changeSlide( "left")
+
+document.querySelector(".rightArr").onclick = function(){
+    changeSlide( "right" )
+changeSlide( "right" )
 }
-const rightArr = document.querySelector(".rightArr")
+function changeSlide( direction ){
+    if( direction == "left" ){
+        currSlide--
+    }else{
+        currSlide++
+    }
+    if( currSlide < 0){
+        currSlide = 2
+    }
+    if( currSlide > 2 ){
+        currSlide = 0
+    }
+    changeHTMLInfo(currSlide)
+}
